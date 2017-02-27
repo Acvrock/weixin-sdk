@@ -47,6 +47,13 @@ public class Payments {
         return payments;
     }
 
+    public static Payments with(PaySetting paySetting,WxSslClient wxSslClient) {
+        Payments payments = new Payments();
+        payments.setPaySetting(paySetting);
+        payments.setWxSslClient(wxSslClient);
+        return payments;
+    }
+
     public void setWxSslClient(WxSslClient wxSslClient) {
         this.wxSslClient = wxSslClient;
     }

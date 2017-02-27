@@ -33,6 +33,13 @@ public class PayWxClientFactory {
         return wxClients.get(key(paySetting));
     }
 
+    public WxSslClient with(PaySetting paySetting, WxSslClient wxSslClient) {
+        if (!wxClients.containsKey(key(paySetting))) {
+            wxClients.putIfAbsent(key(paySetting), wxSslClient);
+        }
+        return wxClients.get(key(paySetting));
+    }
+
 
     private String key(PaySetting paySetting) {
         return paySetting.getAppId() + ":" + paySetting.getMchId();
